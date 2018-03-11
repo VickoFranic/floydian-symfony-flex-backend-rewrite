@@ -12,6 +12,7 @@ use App\Library\Enums\FacebookEndpoint;
 use Facebook\Exceptions\FacebookSDKException;
 use Facebook\Facebook;
 use Facebook\FacebookResponse;
+use Symfony\Component\Yaml\Exception\RuntimeException;
 
 class FacebookService
 {
@@ -51,15 +52,20 @@ class FacebookService
 
     /**
      * @return FacebookResponse
-     * @throws \RuntimeException
+     * @throws FacebookSDKException
      */
     public function getPosts(): ?FacebookResponse
     {
-        try {
-            return $this->facebook->get(FacebookEndpoint::POSTS);
-        } catch (FacebookSDKException $e) {
-            throw new \RuntimeException('Facebook SDK error');
-        }
+        return $this->facebook->get(FacebookEndpoint::POSTS);
+    }
+
+    /**
+     * @return FacebookResponse
+     * @throws FacebookSDKException
+     */
+    public function getEvents(): FacebookResponse
+    {
+        return $this->facebook->get(FacebookEndpoint::EVENTS);
     }
 
 }

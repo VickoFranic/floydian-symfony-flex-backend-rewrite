@@ -13,5 +13,6 @@ class FacebookEndpoint
 {
     private const PAGE_GRAPH_BASE = '/floydiansplit/';
 
-    public const POSTS = self::PAGE_GRAPH_BASE . 'posts?fields=message,created_time,picture,comments,permalink_url,type';
+    public const POSTS      = self::PAGE_GRAPH_BASE . 'posts?fields=message,created_time,picture,comments,permalink_url,type';
+    public const EVENTS     = self::PAGE_GRAPH_BASE . 'events';
 }
