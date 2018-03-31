@@ -68,4 +68,16 @@ class FacebookService
         return $this->facebook->get(FacebookEndpoint::EVENTS);
     }
 
+    /**
+     * @param string $eventId
+     * @return FacebookResponse
+     * @throws FacebookSDKException
+     */
+    public function getEventDetails(string $eventId): FacebookResponse
+    {
+        $url = $eventId . FacebookEndpoint::EVENT_DETAILS;
+
+        return $this->facebook->get($url);
+    }
+
 }

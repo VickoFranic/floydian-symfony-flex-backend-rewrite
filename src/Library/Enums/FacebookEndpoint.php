@@ -15,4 +15,6 @@ class FacebookEndpoint
 
     public const POSTS      = self::PAGE_GRAPH_BASE . 'posts?fields=message,created_time,picture,comments,permalink_url,type';
     public const EVENTS     = self::PAGE_GRAPH_BASE . 'events';
+
+    public const EVENT_DETAILS  = '?fields=attending_count,interested_count,maybe_count,cover';
 }

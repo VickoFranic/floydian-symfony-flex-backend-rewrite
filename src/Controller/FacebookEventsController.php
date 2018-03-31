@@ -24,6 +24,7 @@ class FacebookEventsController
      * @param FacebookService $facebookService
      * @return JsonResponse
      * @throws \RuntimeException
+     * @throws \Facebook\Exceptions\FacebookSDKException
      */
     public function indexAction(FacebookService $facebookService): JsonResponse
     {
@@ -31,5 +32,22 @@ class FacebookEventsController
         $events = $facebookService->getEvents();
 
         return new JsonResponse($events->getDecodedBody());
+    }
+
+    /**
+     * @Route("/facebook/events/{id}")
+     * @Method("GET")
+     *
+     * @param string $id
+     * @param FacebookService $facebookService
+     * @return JsonResponse
+     * @throws \Facebook\Exceptions\FacebookSDKException
+     */
+    public function getEventDetailsAction(string $id, FacebookService $facebookService): JsonResponse
+    {
+        /** @var FacebookResponse $eventDetails */
+        $eventDetails = $facebookService->getEventDetails($id);
+
+        return new JsonResponse($eventDetails->getDecodedBody());
     }
 }

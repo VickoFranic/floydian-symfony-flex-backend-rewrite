@@ -25,6 +25,7 @@ class FacebookPostsController extends Controller
      * @param FacebookService $facebookService
      * @return JsonResponse
      * @throws \RuntimeException
+     * @throws \Facebook\Exceptions\FacebookSDKException
      */
     public function indexAction(FacebookService $facebookService): JsonResponse
     {
